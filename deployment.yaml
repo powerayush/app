@@ -1,7 +1,7 @@
-apiVersion: cloud-experiment/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloud-experiment-deployment
+  name: cloud-experiment-deployment1
   labels:
     app: cloud-experiment
 spec:
@@ -17,5 +17,6 @@ spec:
       containers:
       - name: cloud-experiment
         image: docker.wigwag.io/cloud-experiment:latest 
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
