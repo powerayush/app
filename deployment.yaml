@@ -1,0 +1,21 @@
+apiVersion: testapi1/v1
+kind: Deployment
+metadata:
+  name: testapi1-deployment
+  labels:
+    app: testapi1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: testapi1
+  template:
+    metadata:
+      labels:
+        app: testapi1
+    spec:
+      containers:
+      - name: testapi1
+        image: docker.wigwag.io/cloud-experiment:latest 
+        ports:
+        - containerPort: 3000
