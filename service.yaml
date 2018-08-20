@@ -1,7 +1,7 @@
-apiVersion: testapi1/v1
+apiVersion: cloud-experiment/v1
 kind: Service
 metadata:
-  name: testapi1
+  name: cloud-experiment
 spec:
   # More details on LoadBalancer services here:
   # http://kubernetes.io/v1.1/docs/user-guide/services.html#type-loadbalancer
@@ -16,4 +16,4 @@ spec:
     targetPort: 3000
     protocol: TCP
   selector:
-    app: testapi1
+    app: cloud-experiment
