@@ -1,0 +1,102 @@
+prometheus:
+  enabled: false
+cassandra:
+  enabled: true
+  replicas: 1
+  snitch: "GoogleCloudSnitch"
+  nodeStorageCapacity: "50Gi"
+  resources:
+    limits:
+      cpu: 1
+      memory: 4Gi
+    requests:
+      cpu: 1
+      memory: 2Gi
+devicedb:
+  enabled: true
+  replicas: 1
+  nodeStorageCapacity: "50Gi"
+  resources:
+    limits:
+      cpu: 2
+      memory: 4Gi
+    requests:
+      cpu: 0.5
+      memory: 2Gi
+elasticsearch:
+  enabled: true
+  masterReplicas: 1
+  masterJavaOpts: "-Xms1024m -Xmx1024m"
+  masterResources:
+    limits:
+      cpu: 1
+      memory: "1.5Gi"
+    requests:
+      cpu: 0.5
+      memory: "1Gi"
+  clientReplicas: 1
+  clientResources:
+    limits:
+      cpu: 1
+    requests:
+      cpu: 0.1
+  clientNetworkHost: "_site_,_lo_"
+  dataJavaOpts: "-Xms1024m -Xmx1024m"
+  dataReplicas: 1
+  dataResources:
+    limits:
+      cpu: 1
+      memory: "1.5Gi"
+    requests:
+      cpu: 0.25
+      memory: "1Gi"
+  dataNodeStorageCapacity: "50Gi"
+  masterNodeStorageCapacity: "50Gi"
+kibana:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 1000m
+    requests:
+      cpu: 100m
+mongodb:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 1.5
+      memory: 4Gi
+    requests:
+      cpu: 1.5
+      memory: 4Gi
+  nodeStorageCapacity: "50Gi"
+rabbitmq:
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 1.5
+      memory: 4Gi
+    requests:
+      cpu: 1.5
+      memory: 4Gi
+  nodeStorageCapacity: "50Gi"
+kafka_connect:
+  enabled: true
+  replicas: 1
+kafka:
+  enabled: true
+  resources:
+    limits:
+      cpu: 1
+      memory: 1024Mi
+    requests:
+      cpu: 1
+      memory: 1024Mi
+  kafkaHeapOptions: "-Xmx1G -Xms1G"
+  replicas: 3
+  zookeeper:
+    replicas: 1
+imagePullSecrets:
+- name: wigwag-regsecret
